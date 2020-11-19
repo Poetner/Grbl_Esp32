@@ -38,8 +38,8 @@
     #define X_LIMIT_PIN     GPIO_NUM_32
 #endif
 
-#define TRINAMIC_RUN_MODE           TRINAMIC_MODE_COOLSTEP
-#define TRINAMIC_HOMING_MODE        TRINAMIC_MODE_COOLSTEP
+#define TRINAMIC_RUN_MODE           TrinamicMode :: CoolStep
+#define TRINAMIC_HOMING_MODE        TrinamicMode :: CoolStep
 
 #define X_STEP_PIN              GPIO_NUM_12
 #define X_DIRECTION_PIN         GPIO_NUM_26
@@ -59,12 +59,10 @@
 
 // Define one of these 2 options for spindle or servo
 #define Z_SERVO_PIN                     GPIO_NUM_27 // comment this out if PWM spindle/laser control.
-#define Z_SERVO_RANGE_MIN               0.0
-#define Z_SERVO_RANGE_MAX               5.0
+#define DEFAULT_Z_MAX_TRAVEL          5.0   // Range of travel is 5mm
+#define DEFAULT_Z_HOMING_MPOS         5.0   // MPos will be set to 5mm after homing
+#define Z_SERVO_CAL_MIN               1.0   // calibration factor for the minimum PWM duty
+#define Z_SERVO_CAL_MAX               1.0   // calibration factor for the maximum PWM duty
 
 // #define X_LIMIT_PIN          See version section at beginning of file
 #define Y_LIMIT_PIN             GPIO_NUM_4
-
-// defaults
-#define DEFAULT_Z_STEPS_PER_MM 100.0    // This is used as the servo calibration
-#define DEFAULT_Z_MAX_TRAVEL 300.0      // This is used as the servo calibration
